@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Portfolio
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <script defer="" src="particle-canvas.js">
+  </script>
+ </head>
+ <body>
+  <!-- custom-cursor.html -->
+  <!-- Custom Cursor -->
+  <style>
+   .custom-cursor {
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(45deg, rgba(194, 49, 158, 0.9), 
+    rgba(194, 49, 158, 0.9));
+    border: 2px solid rgb(197, 56, 157);
+    border-radius: 9999px;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease;
+  }
+  </style>
+  <div class="custom-cursor" id="custom-cursor">
+  </div>
+  <script>
+   const cursor = document.getElementById('custom-cursor');
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  });
+  </script>
+  <!-- scroll-progress.html -->
+  <!-- Scroll Progress Bar -->
+  <div class="fixed top-0 left-0 h-1 bg-pink-500 z-50" id="scroll-progress" 
+  style="width: 0%;">
+  </div>
+  <script>
+   window.addEventListener('scroll', () => {
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - 
+    document.documentElement.clientHeight;
+    const progress = (scrollTop / scrollHeight) * 100;
+    document.getElementById('scroll-progress').style.width = progress + '%';
+  });
+  </script>
+  <!-- floating-nav.html -->
+  <!-- Floating Navigation -->
+  <nav class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-slate-800/80 
+  backdrop-blur-lg px-6 py-3 rounded-full shadow-lg flex gap-6">
+   <a class="text-white opacity-70 hover:opacity-100 transition" 
+   href="#hero" title="홈">
+    🏠
+   </a>
+   <a class="text-white opacity-70 hover:opacity-100 transition" 
+   href="#about" title="소개">
+    👤
+   </a>
+   <a class="text-white opacity-70 hover:opacity-100 transition" 
+   href="#skills" title="기술">
+    🛠️
+   </a>
+   <a class="text-white opacity-70 hover:opacity-100 transition" 
+   href="#projects" title="프로젝트">
+    📁
+   </a>
+   <a class="text-white opacity-70 hover:opacity-100 transition" 
+   href="#contact" title="연락처">
+    ✉️
+   </a>
+  </nav>
+  <!-- hero.html -->
+  <!-- Hero Section -->
+  <section class="relative h-screen flex items-center justify-center 
+  bg-gradient-to-br from-purple-900 via-slate-900 to-purple-800 text-white 
+  text-center px-4" id="hero">
+   <div class="z-10 max-w-3xl">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold 
+    leading-tight mb-4">
+     안녕하세요
+     <br/>
+     <span class="text-pink-400">
+      저는
+      <br/>
+      풀스택 개발자
+     </span>
+     <br/>
+     입니다
+    </h1>
+    <p class="text-gray-300 mb-8">
+     창의적인 아이디어를 현실로 만드는 것을 좋아하는 개발자입니다.
+     <br/>
+     사용자 중심의 고품질 웹 애플리케이션을 만듭니다.
+    </p>
+    <a class="inline-block bg-pink-500 hover:bg-pink-600 text-white 
+    font-semibold py-3 px-6 rounded-full shadow transition" href="#projects">
+     프로젝트 보러가기
+    </a>
+   </div>
+   <div class="absolute inset-0 bg-[radial-gradient(#ffffff11_1px,transparent_1px)] 
+   [background-size:20px_20px]">
+   </div>
+  </section>
+  <!-- about.html -->
+  <!-- About Section -->
+  <section class="py-20 px-4 bg-slate-800/50 text-white" id="about">
+   <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-4xl font-bold mb-6">
+     저에 대해
+    </h2>
+    <p class="text-gray-300 text-lg max-w-3xl mx-auto">
+     저는 3년 이상의 경험을 가진 풀스택 개발자입니다.
+     <br/>
+     React, Next.js, Node.js 등 최신 기술에 익숙하며 사용자 중심의 솔루션을 만듭니다.
+    </p>
+   </div>
+  </section>
+  <!-- skills.html -->
+  <!-- Skills Section with Progress Bars -->
+  <section class="py-20 px-4 bg-slate-900 text-white" id="skills">
+   <div class="max-w-5xl mx-auto text-center">
+    <h2 class="text-4xl font-bold mb-10">
+     기술 스택
+    </h2>
+    <div class="space-y-6 text-left">
+     <div>
+      <div class="flex justify-between mb-1">
+       <span class="text-sm font-semibold">
+        HTML/CSS
+       </span>
+       <span class="text-sm text-gray-400">
+        95%
+       </span>
+      </div>
+      <div class="w-full bg-slate-700 rounded-full h-3">
+       <div class="bg-pink-500 h-3 rounded-full transition-all duration-700" 
+       style="width: 95%">
+       </div>
+      </div>
+     </div>
+     <div>
+      <div class="flex justify-between mb-1">
+       <span class="text-sm font-semibold">
+        JavaScript
+       </span>
+       <span class="text-sm text-gray-400">
+        90%
+       </span>
+      </div>
+      <div class="w-full bg-slate-700 rounded-full h-3">
+       <div class="bg-pink-500 h-3 rounded-full transition-all duration-700" 
+       style="width: 90%">
+       </div>
+      </div>
+     </div>
+     <div>
+      <div class="flex justify-between mb-1">
+       <span class="text-sm font-semibold">
+        React
+       </span>
+       <span class="text-sm text-gray-400">
+        88%
+       </span>
+      </div>
+      <div class="w-full bg-slate-700 rounded-full h-3">
+       <div class="bg-pink-500 h-3 rounded-full transition-all duration-700" 
+       style="width: 88%">
+       </div>
+      </div>
+     </div>
+     <div>
+      <div class="flex justify-between mb-1">
+       <span class="text-sm font-semibold">
+        Next.js
+       </span>
+       <span class="text-sm text-gray-400">
+        85%
+       </span>
+      </div>
+      <div class="w-full bg-slate-700 rounded-full h-3">
+       <div class="bg-pink-500 h-3 rounded-full transition-all duration-700" 
+       style="width: 85%">
+       </div>
+      </div>
+     </div>
+     <div>
+      <div class="flex justify-between mb-1">
+       <span class="text-sm font-semibold">
+        Node.js
+       </span>
+       <span class="text-sm text-gray-400">
+        80%
+       </span>
+      </div>
+      <div class="w-full bg-slate-700 rounded-full h-3">
+       <div class="bg-pink-500 h-3 rounded-full transition-all duration-700" 
+       style="width: 80%">
+       </div>
+      </div>
+     </div>
+     <div>
+      <div class="flex justify-between mb-1">
+       <span class="text-sm font-semibold">
+        MongoDB
+       </span>
+       <span class="text-sm text-gray-400">
+        75%
+       </span>
+      </div>
+      <div class="w-full bg-slate-700 rounded-full h-3">
+       <div class="bg-pink-500 h-3 rounded-full transition-all duration-700" 
+       style="width: 75%">
+       </div>
+      </div>
+     </div>
+     <div>
+      <div class="flex justify-between mb-1">
+       <span class="text-sm font-semibold">
+        TypeScript
+       </span>
+       <span class="text-sm text-gray-400">
+        80%
+       </span>
+      </div>
+      <div class="w-full bg-slate-700 rounded-full h-3">
+       <div class="bg-pink-500 h-3 rounded-full transition-all duration-700" 
+       style="width: 80%">
+       </div>
+      </div>
+     </div>
+     <div>
+      <div class="flex justify-between mb-1">
+       <span class="text-sm font-semibold">
+        Tailwind CSS
+       </span>
+       <span class="text-sm text-gray-400">
+        90%
+       </span>
+      </div>
+      <div class="w-full bg-slate-700 rounded-full h-3">
+       <div class="bg-pink-500 h-3 rounded-full transition-all duration-700" 
+       style="width: 90%">
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- projects.html -->
+  <!-- Projects Section with More Cards -->
+  <section class="py-20 px-4 bg-gradient-to-b from-slate-900 
+  to-purple-900 text-white" id="projects">
+   <div class="max-w-7xl mx-auto text-center">
+    <h2 class="text-4xl font-bold mb-6">
+     프로젝트
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 
+    gap-8 mt-10 text-left">
+     <!-- Repeatable card -->
+     <div class="bg-slate-800 p-6 rounded-lg shadow-md hover:shadow-lg 
+     transition-all duration-300">
+      <img alt="프로젝트 이미지" class="rounded mb-4 w-full object-cover h-40" 
+      src="images/유튜브 쇼츠 자동화 복사본.png" width="600"/>
+      <h3 class="text-xl font-semibold mb-2">
+       YouTube Shorts 자동화 랜딩 페이지
+      </h3>
+      <p class="text-gray-400 text-sm mb-4">
+       YouTube의 긴영상을 URL 입력만으로 쇼츠를 생성해주는 서비스를 구현되었습니다.
+      </p>
+      <div class="flex flex-wrap gap-2 mb-3">
+       <span class="text-xs bg-purple-700/60 px-2 py-1 rounded">
+        Next.js
+       </span>
+       <span class="text-xs bg-purple-700/60 px-2 py-1 rounded">
+        Backend
+       </span>
+       <span class="text-xs bg-purple-700/60 px-2 py-1 rounded">
+        Frontend
+       </span>
+      </div>
+      <a class="text-pink-400 text-sm hover:underline" 
+      href="https://github.com/yourusername/money-app" target="_blank">
+       GitHub 보기
+      </a>
+     </div>
+     <div class="bg-slate-800 p-6 rounded-lg shadow-md hover:shadow-lg 
+     transition-all duration-300">
+      <img alt="프로젝트 이미지" class="rounded mb-4 w-full object-cover h-40" 
+      src="https://picsum.photos/600/300?grayscale&amp;2"/>
+      <h3 class="text-xl font-semibold mb-2">
+       회사 전자 결재 웹
+      </h3>
+      <p class="text-gray-400 text-sm mb-4">
+       전자 결재를 위한 내부 웹 애플리케이션. Next.js와 Prisma 기반.
+      </p>
+      <div class="flex flex-wrap gap-2 mb-3">
+       <span class="text-xs bg-purple-700/60 px-2 py-1 rounded">
+        Next.js
+       </span>
+       <span class="text-xs bg-purple-700/60 px-2 py-1 rounded">
+        TypeScript
+       </span>
+       <span class="text-xs bg-purple-700/60 px-2 py-1 rounded">
+        Prisma
+       </span>
+      </div>
+      <a class="text-pink-400 text-sm hover:underline" 
+      href="https://github.com/yourusername/approval-app" target="_blank">
+       GitHub 보기
+      </a>
+     </div>
+     <div class="bg-slate-800 p-6 rounded-lg shadow-md hover:shadow-lg 
+     transition-all duration-300">
+      <img alt="프로젝트 이미지" class="rounded mb-4 w-full object-cover h-40" 
+      src="https://picsum.photos/600/300?grayscale&amp;3"/>
+      <h3 class="text-xl font-semibold mb-2">
+       코드리뷰 관리 도구
+      </h3>
+      <p class="text-gray-400 text-sm mb-4">
+       개발자들의 코드 리뷰를 시각화하여 관리할 수 있는 웹 플랫폼입니다.
+      </p>
+      <div class="flex flex-wrap gap-2 mb-3">
+       <span class="text-xs bg-purple-700/60 px-2 py-1 rounded">
+        React
+       </span>
+       <span class="text-xs bg-purple-700/60 px-2 py-1 rounded">
+        MongoDB
+       </span>
+       <span class="text-xs bg-purple-700/60 px-2 py-1 rounded">
+        Chart.js
+       </span>
+      </div>
+      <a class="text-pink-400 text-sm hover:underline" 
+      href="https://github.com/yourusername/code-review-tool" target="_blank">
+       GitHub 보기
+      </a>
+     </div>
+     <div class="bg-slate-800 p-6 rounded-lg shadow-md hover:shadow-lg 
+     transition-all duration-300">
+      <img alt="프로젝트 이미지" class="rounded mb-4 w-full object-cover h-40" 
+      src="https://picsum.photos/600/300?grayscale&amp;4"/>
+      <h3 class="text-xl font-semibold mb-2">
+       날씨 대시보드
+      </h3>
+      <p class="text-gray-400 text-sm mb-4">
+       API 기반의 실시간 날씨 대시보드입니다. OpenWeather 사용.
+      </p>
+      <div class="flex flex-wrap gap-2 mb-3">
+       <span class="text-xs bg-purple-700/60 px-2 py-1 rounded">
+        OpenWeather
+       </span>
+       <span class="text-xs bg-purple-700/60 px-2 py-1 rounded">
+        React
+       </span>
+       <span class="text-xs bg-purple-700/60 px-2 py-1 rounded">
+        Chart.js
+       </span>
+      </div>
+      <a class="text-pink-400 text-sm hover:underline" 
+      href="https://github.com/yourusername/weather-dashboard" target="_blank">
+       GitHub 보기
+      </a>
+     </div>
+     <div class="bg-slate-800 p-6 rounded-lg shadow-md hover:shadow-lg 
+     transition-all duration-300">
+      <img alt="프로젝트 이미지" class="rounded mb-4 w-full object-cover h-40" 
+      src="https://picsum.photos/600/300?grayscale&amp;5"/>
+      <h3 class="text-xl font-semibold mb-2">
+       포트폴리오 홈페이지
+      </h3>
+      <p class="text-gray-400 text-sm mb-4">
+       지금 보시는 포트폴리오 웹사이트입니다. 정적 HTML로 재구현되었습니다.
+      </p>
+      <div class="flex flex-wrap gap-2 mb-3">
+       <span class="text-xs bg-purple-700/60 px-2 py-1 rounded">
+        HTML
+       </span>
+       <span class="text-xs bg-purple-700/60 px-2 py-1 rounded">
+        Tailwind
+       </span>
+       <span class="text-xs bg-purple-700/60 px-2 py-1 rounded">
+        JavaScript
+       </span>
+      </div>
+      <a class="text-pink-400 text-sm hover:underline" 
+      href="https://github.com/yourusername/portfolio" target="_blank">
+       GitHub 보기
+      </a>
+     </div>
+     <div class="bg-slate-800 p-6 rounded-lg shadow-md hover:shadow-lg 
+     transition-all duration-300">
+      <img alt="프로젝트 이미지" class="rounded mb-4 w-full object-cover h-40" 
+      src="https://picsum.photos/600/300?grayscale&amp;6"/>
+      <h3 class="text-xl font-semibold mb-2">
+       뉴스 크롤링 사이트
+      </h3>
+      <p class="text-gray-400 text-sm mb-4">
+       최신 기술 뉴스를 자동 수집하고 보여주는 사이트입니다.
+      </p>
+      <div class="flex flex-wrap gap-2 mb-3">
+       <span class="text-xs bg-purple-700/60 px-2 py-1 rounded">
+        Node.js
+       </span>
+       <span class="text-xs bg-purple-700/60 px-2 py-1 rounded">
+        Cheerio
+       </span>
+       <span class="text-xs bg-purple-700/60 px-2 py-1 rounded">
+        Express
+       </span>
+      </div>
+      <a class="text-pink-400 text-sm hover:underline" 
+      href="https://github.com/yourusername/news-crawler" target="_blank">
+       GitHub 보기
+      </a>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- experience.html -->
+  <!-- Experience Section -->
+  <section class="py-20 px-4 bg-slate-800 text-white" id="experience">
+   <div class="max-w-5xl mx-auto">
+    <h2 class="text-4xl font-bold text-center mb-10">
+     경력
+    </h2>
+    <div class="space-y-8 border-l-4 border-pink-500 pl-6">
+     <div class="relative">
+      <div class="absolute w-4 h-4 bg-pink-500 rounded-full -left-6 top-2">
+      </div>
+      <h3 class="text-xl font-semibold">
+       프론트엔드 개발자
+       <span class="text-sm text-gray-400">
+        (2022.01 - 현재)
+       </span>
+      </h3>
+      <p class="text-sm text-gray-400 mb-2">
+       ABC 테크놀로지
+      </p>
+      <p class="text-gray-300">
+       React 기반 대시보드 개발, UI/UX 향상 및 컴포넌트 리팩토링.
+      </p>
+     </div>
+     <div class="relative">
+      <div class="absolute w-4 h-4 bg-pink-500 rounded-full -left-6 top-2">
+      </div>
+      <h3 class="text-xl font-semibold">
+       풀스택 개발자
+       <span class="text-sm text-gray-400">
+        (2020.06 - 2021.12)
+       </span>
+      </h3>
+      <p class="text-sm text-gray-400 mb-2">
+       XYZ 스타트업
+      </p>
+      <p class="text-gray-300">
+       Node.js 및 Express 기반 API 서버 구축 및 MongoDB 연동.
+      </p>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- contact.html -->
+  <!-- Contact Section -->
+  <section class="py-20 px-4 bg-slate-900 text-white" id="contact">
+   <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl font-bold text-center mb-10">
+     연락하기
+    </h2>
+    <div class="grid md:grid-cols-2 gap-10">
+     <div>
+      <h3 class="text-xl font-semibold mb-4">
+       연락처 정보
+      </h3>
+      <p class="mb-2">
+       <strong>
+        이메일:
+       </strong>
+       tears0427@gmail.com
+      </p>
+      <p class="mb-2">
+       <strong>
+        전화번호:
+       </strong>
+       010-3533-6770
+      </p>
+      <p class="mb-2">
+       <strong>
+        주소:
+       </strong>
+       대구광역시 북구 칠성남로
+      </p>
+      <p class="text-gray-400 mt-4">
+       협업, 채용, 사이드 프로젝트 모두 환영합니다!
+      </p>
+     </div>
+     <form class="space-y-6">
+      <div>
+       <label class="block text-sm mb-1" for="name">
+        이름
+       </label>
+       <input class="w-full px-4 py-2 rounded bg-slate-800 text-white 
+       border border-slate-700 focus:outline-none focus:ring-2 
+       focus:ring-pink-400" id="name" name="name" required="" type="text"/>
+      </div>
+      <div>
+       <label class="block text-sm mb-1" for="email">
+        이메일
+       </label>
+       <input class="w-full px-4 py-2 rounded bg-slate-800 text-white 
+       border border-slate-700 focus:outline-none focus:ring-2 
+       focus:ring-pink-400" id="email" name="email" required="" type="email"/>
+      </div>
+      <div>
+       <label class="block text-sm mb-1" for="message">
+        메시지
+       </label>
+       <textarea class="w-full px-4 py-2 rounded bg-slate-800 text-white 
+       border border-slate-700 focus:outline-none focus:ring-2 
+       focus:ring-pink-400" id="message" name="message" required="" rows="4"></textarea>
+      </div>
+      <button class="px-6 py-2 bg-pink-500 text-white rounded 
+      hover:bg-pink-600 transition" type="submit">
+       보내기
+      </button>
+     </form>
+    </div>
+   </div>
+  </section>
+  <!-- footer.html -->
+  <!-- Footer -->
+  <footer class="bg-slate-950 text-gray-400 py-10 px-4">
+   <div class="max-w-6xl mx-auto text-center space-y-4">
+    <div class="flex justify-center gap-6 text-sm flex-wrap">
+     <a class="hover:text-white transition" href="#hero">
+      홈
+     </a>
+     <a class="hover:text-white transition" href="#about">
+      소개
+     </a>
+     <a class="hover:text-white transition" href="#skills">
+      기술
+     </a>
+     <a class="hover:text-white transition" href="#projects">
+      프로젝트
+     </a>
+     <a class="hover:text-white transition" href="#experience">
+      경력
+     </a>
+     <a class="hover:text-white transition" href="#contact">
+      연락
+     </a>
+    </div>
+    <p class="text-xs text-gray-500">
+     © 2025 Your Name. 모든 권리 보유.
+    </p>
+   </div>
+  </footer>
+ </body>
+</html>
